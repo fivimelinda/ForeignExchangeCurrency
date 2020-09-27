@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./style.css";
 import Currency from "./Currency.js";
 import AddtoList from "./AddtoList";
-import * as service from "../api/index.js";
+import { getRate } from "../api/index.js";
 import {
   Container,
   Grid,
@@ -84,8 +84,7 @@ class App extends Component {
   }
 
   getRateList = (base) => {
-    service
-      .getRate(base)
+    getRate(base)
       .then((res) => {
         this.setState({
           rateList: res.data.rates,
