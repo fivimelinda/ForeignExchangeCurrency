@@ -13,9 +13,7 @@ import {
   MenuItem,
   Button,
 } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { red } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
   palette: {
@@ -58,7 +56,6 @@ class App extends Component {
       value: 10.0,
       base: "USD",
       rateList: {},
-      showAddCurrency: false,
 
       currencyList: [
         { code: "USD", name: "United States Dollar", show: false },
@@ -145,12 +142,6 @@ class App extends Component {
     });
   };
 
-  openAddCurrency = () => {
-    this.setState({
-      showAddCurrency: true,
-    });
-  };
-
   render() {
     return (
       <ThemeProvider theme={theme}>
@@ -234,25 +225,11 @@ class App extends Component {
                     )}
 
                     {/* Add currencies  */}
-                    <Grid item lg={12} xs={12}>
-                      {this.state.showAddCurrency ? (
-                        <AddtoList
-                          list={this.state.currencyList}
-                          currentBase={this.state.base}
-                          action={this.addCurrency}
-                        />
-                      ) : (
-                        <Button
-                          variant="contained"
-                          fullWidth
-                          color="primary"
-                          startIcon={<AddIcon />}
-                          onClick={this.openAddCurrency}
-                        >
-                          Add More Currencies
-                        </Button>
-                      )}
-                    </Grid>
+                    <AddtoList
+                      list={this.state.currencyList}
+                      currentBase={this.state.base}
+                      action={this.addCurrency}
+                    />
                   </Grid>
                 </Box>
               </Paper>
