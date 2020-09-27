@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+hr {
+  display: block;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 0.2px;
+  border-color: #55185d;
+}
+
+.small-text {
+  font-size: 12px;
+}
+#value {
+  text-align: right;
+}
