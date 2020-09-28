@@ -146,7 +146,7 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <Container>
-          <h1 className="title">Foreign Currency Exchange</h1>
+          <h1 className="title">Foreign Exchange Currency</h1>
           <Grid container align-items="center" justify="center">
             <Grid item xs={12} lg={4}>
               <Paper elevation={2} fullWidth>
