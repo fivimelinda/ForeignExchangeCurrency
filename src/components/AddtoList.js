@@ -39,6 +39,7 @@ class AddtoList extends Component {
     this.props.action(this.state.inputValue);
     this.setState({
       inputValue: "",
+      showAddCurrency: false,
     });
   };
 

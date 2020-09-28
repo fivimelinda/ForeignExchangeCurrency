@@ -15,51 +15,53 @@ function Currency(props) {
   const total = rate * props.value;
   const totalFormatted = Number(total).toLocaleString("en", options);
   return (
-    <Paper variant="outlined">
-      <Box p={2}>
-        <Grid container direction="row" spacing={2}>
-          <Grid item container direction="column" lg={10} xs={10}>
-            <Grid item container direction="row" justify="space-between">
-              <Grid item lg={6} xs={2}>
-                {props.code}
+    <Grid item lg={12} xs={12}>
+      <Paper variant="outlined">
+        <Box p={2}>
+          <Grid container direction="row" spacing={2}>
+            <Grid item container direction="column" lg={10} xs={10}>
+              <Grid item container direction="row" justify="space-between">
+                <Grid item lg={6} xs={2}>
+                  {props.code}
+                </Grid>
+                <Grid item container lg={6} xs={10} justify="flex-end">
+                  {totalFormatted}
+                </Grid>
               </Grid>
-              <Grid item container lg={6} xs={10} justify="flex-end">
-                {totalFormatted}
+              <Grid item className="small-text">
+                <strong>
+                  <i>
+                    {props.code} - {props.name}
+                  </i>
+                </strong>
               </Grid>
-            </Grid>
-            <Grid item className="small-text">
-              <strong>
+              <Grid item className="small-text">
                 <i>
-                  {props.code} - {props.name}
+                  1 {props.base} = {props.code} {rateFormatted}
                 </i>
-              </strong>
+              </Grid>
             </Grid>
-            <Grid item className="small-text">
-              <i>
-                1 {props.base} = {props.code} {rateFormatted}
-              </i>
-            </Grid>
-          </Grid>
-          <Divider orientation="vertical" flexItem />
-          <Grid
-            item
-            container
-            lg={1}
-            xs={1}
-            justify="flex-start"
-            alignItems="center"
-          >
-            <IconButton
-              aria-label="add"
-              color="secondary"
-              onClick={() => props.action(props.code)}
+            <Divider orientation="vertical" flexItem />
+            <Grid
+              item
+              container
+              lg={1}
+              xs={1}
+              justify="flex-start"
+              alignItems="center"
             >
-              <RemoveIcon />
-            </IconButton>
+              <IconButton
+                aria-label="add"
+                color="secondary"
+                onClick={() => props.action(props.code)}
+              >
+                <RemoveIcon />
+              </IconButton>
+            </Grid>
           </Grid>
-        </Grid>
-      </Box>
-    </Paper>
+        </Box>
+      </Paper>
+    </Grid>
   );
 }
 export default Currency;

@@ -130,7 +130,6 @@ class App extends Component {
       currencyList: this.state.currencyList.map((currency) =>
         currency.code === value ? { ...currency, show: true } : currency
       ),
-      showAddCurrency: false,
     });
   };
 
@@ -211,16 +210,14 @@ class App extends Component {
                     {/* List of currencies */}
                     {this.state.currencyList.map((currency) =>
                       currency.show && currency.code !== this.state.base ? (
-                        <Grid item lg={12} xs={12}>
-                          <Currency
-                            code={currency.code}
-                            base={this.state.base}
-                            name={currency.name}
-                            value={this.state.value}
-                            rate={this.state.rateList[currency.code]}
-                            action={this.removeCurrency}
-                          />
-                        </Grid>
+                        <Currency
+                          code={currency.code}
+                          base={this.state.base}
+                          name={currency.name}
+                          value={this.state.value}
+                          rate={this.state.rateList[currency.code]}
+                          action={this.removeCurrency}
+                        />
                       ) : null
                     )}
 
