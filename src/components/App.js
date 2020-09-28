@@ -123,6 +123,7 @@ class App extends Component {
       base: e.target.value,
     });
     this.getRateList(this.state.base);
+    this.removeCurrency(this.state.base);
   };
 
   addCurrency = (value) => {
